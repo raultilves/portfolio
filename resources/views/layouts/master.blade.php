@@ -8,7 +8,7 @@
   <meta name="description" content="Portfolio">
   <meta name="author" content="Raul Santana Tilves">
 
-  <title>Freelancer - Start Bootstrap Theme</title>
+  <title>Raul Santana - Portfolio</title>
 
   <!-- Custom fonts for this theme -->
   <link href="{{asset('css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -25,9 +25,8 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Inicio</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -36,10 +35,10 @@
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Info</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contacto</a>
           </li>
         </ul>
       </div>
@@ -54,7 +53,7 @@
       <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
+      <h1 class="masthead-heading text-uppercase mb-0">Mi Portfolio</h1>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -66,7 +65,7 @@
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+      <p class="masthead-subheading font-weight-light mb-0">Desarrolador Web - Full Stack - Programador</p>
 
     </div>
   </header>
@@ -76,7 +75,7 @@
     <div class="container">
 
       <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Proyectos</h2>
 
       <!-- Icon Divider -->
       <div class="divider-custom">
@@ -173,7 +172,7 @@
     <div class="container">
 
       <!-- About Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+      <h2 class="page-section-heading text-center text-uppercase text-white">Info</h2>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -187,18 +186,18 @@
       <!-- About Section Content -->
       <div class="row">
         <div class="col-lg-4 ml-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+          <p class="lead">Soy un apasionado de la programación, desarrollador web Full-Stack aunque especializado en el Back-End. Mis proyectos son hechos con mucho cariño e ilusión.</p>
         </div>
         <div class="col-lg-4 mr-auto">
-          <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+          <p class="lead">A pesar de ser Junior, tengo conocimientos sobre muchas tecnologías, las principales: PHP, Node.js, MySQL/MariaDB, MongoDB, HTML, CSS, Javascript y entornos LAMP.</p>
         </div>
       </div>
 
       <!-- About Section Button -->
       <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
+        <a class="btn btn-xl btn-outline-light" href="pdf/curriculum.pdf" target="_blank">
           <i class="fas fa-download mr-2"></i>
-          Free Download!
+          Mi curriculum!
         </a>
       </div>
 
