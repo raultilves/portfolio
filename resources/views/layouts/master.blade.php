@@ -28,8 +28,6 @@
   
   @include('partials.footer')
 
-  @yield('modals')
-
   @include('partials.scripts')
 
 </body>
