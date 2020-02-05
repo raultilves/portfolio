@@ -23,6 +23,8 @@
 <body id="page-top">
   @include('partials.nav')
 
+  
+
 
   @yield('content')
   
