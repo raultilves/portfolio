@@ -16,7 +16,7 @@
             <i class="fab fa-fw fa-linkedin-in"></i>
           </a>
           <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-dribbble"></i>
+            <i class="fab fa-fw fa-instagram"></i>
           </a>
         </div>
 
@@ -29,7 +29,7 @@
     <div class="container">
       <small>Copyright &copy; raulsantana.es 2020</small>
       <br>
-      <small>Frontend MIT license "Freelance Template"</small>
+      <small>Frontend MIT license "Freelance Template" by <a href="https://startbootstrap.com/">Start Bootstrap</a></small>
     </div>
   </section>
 

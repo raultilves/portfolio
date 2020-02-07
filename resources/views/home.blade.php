@@ -208,10 +208,6 @@
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="">
@@ -246,11 +242,7 @@
                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-line">
                 </div>
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt="">
@@ -286,10 +278,6 @@
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="">
@@ -324,11 +312,7 @@
                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-line">
                 </div>
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="">
@@ -363,11 +347,7 @@
                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-line">
                 </div>
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt="">
@@ -402,11 +382,7 @@
                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-line">
                 </div>
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/submarine.png" alt="">
