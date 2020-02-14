@@ -1,6 +1,6 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{{secure_asset('js/jquery.min.js')}}"></script>
-  <script src="{{asset('js/app.js')}}"></script>
+  <script src="{{secure_asset('js/app.js')}}"></script>
 
   <!-- Plugin JavaScript -->
   <script src="{{secure_asset('js/jquery.easing.min.js')}}"></script>
