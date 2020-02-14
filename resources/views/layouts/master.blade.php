@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violation-report-endpoint/
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Portfolio">
@@ -11,12 +10,12 @@ Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violati
   <title>Raul Santana - Portfolio</title>
 
   <!-- Custom fonts for this theme -->
-  <link href="{{asset('css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{secure_asset('css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Theme CSS -->
-  <link href="{{asset('css/app.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('css/app.css')}}" rel="stylesheet">
 
 </head>
 
