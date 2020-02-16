@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
     //Borra los registros de las tablas
     public function truncateTables(array $tables) {
         foreach ($tables as $table) {
-            DB::statement("SET session_replication_role = 'replica';");
+            //DB::statement("SET session_replication_role = 'replica';");   // ESTO ES COMO FK CHECKS 0
             DB::table($table)->truncate();
-            DB::statement("SET session_replication_role = 'origin';");
+            //DB::statement("SET session_replication_role = 'origin';");    // ESTO ES COMO FK CHECK 1
         }
     }
 }
