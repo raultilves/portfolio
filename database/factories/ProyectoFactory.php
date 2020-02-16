@@ -12,7 +12,8 @@ $factory->define(Proyecto::class, function (Faker $faker) {
         'nombre' => $faker->jobTitle,
         'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'descripcion'=> $faker->text($maxNbChars=50),
-        'foto' => $faker->imageUrl($width=1200, $height=860, 'business'),
+        //'foto' => $faker->imageUrl($width=600, $height=430, 'business'),
+        'foto' => 'placeholder.png',
         'categoria_id'=> $faker->numberBetween(1,$total)
     ];
 });
