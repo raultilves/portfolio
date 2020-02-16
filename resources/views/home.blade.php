@@ -28,7 +28,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            {!!Html::image(https://raul-portfolio-storage.s3.eu-west-3.amazonaws.com/proyectos/.$proyecto->foto),'Portada de proyecto')!!}
+            {!!Html::image('https://raul-portfolio-storage.s3.eu-west-3.amazonaws.com/proyectos/'.$proyecto->foto),'Portada de proyecto')!!}
           </div>
         </div>
 
