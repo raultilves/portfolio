@@ -54,11 +54,12 @@
                       <!-- Portfolio Modal - Image -->
                       <img class="img-fluid rounded mb-5" src="{{ secure_url('https://raul-portfolio-storage.s3.eu-west-3.amazonaws.com/proyectos/'.$proyecto->foto)}}" alt="Portada">
                       <!-- Portfolio Modal - Text -->
-                      <p class="mb-5">{{$proyecto->fecha}}</p>
+                      <p class="mb-3">{{$proyecto->fecha}}</p>
+                      <p class="mb-5">Categoria: {{$proyecto->categoria->nombre}}</p>
                       <p class="mb-5">{{$proyecto->descripcion}}</p>
                       <button class="btn btn-primary" href="#" data-dismiss="modal">
                         <i class="fas fa-times fa-fw"></i>
-                        Close Window
+                        Cerrar
                       </button>
                     </div>
                   </div>
@@ -124,6 +125,7 @@
         <div class="col-lg-8 mx-auto">
           <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
           <form name="sentMessage" id="contactForm" novalidate="novalidate">
+            @csrf
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>Nombre</label>
