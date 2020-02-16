@@ -28,7 +28,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="{{ secure_url('storage/proyectos/'.$proyecto->foto)}}" alt='Imagen de proyecto {{$key+1}}'>
+            <img class="img-fluid" src="{{ url('http://s3.amazonaws.com/raul-portfolio-storage/'.$proyecto->foto)}}" alt='Imagen de proyecto {{$key+1}}'>
           </div>
         </div>
 
