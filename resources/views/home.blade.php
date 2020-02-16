@@ -28,7 +28,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="{{ url('storage/proyectos/'.$proyectos->foto)}}" alt='Imagen de proyecto {{$key+1}}'>
+            <img class="img-fluid" src="{{ url('storage/proyectos/'.$proyecto->foto)}}" alt='Imagen de proyecto {{$key+1}}'>
           </div>
         </div>
 
@@ -52,7 +52,7 @@
                         <div class="divider-custom-line"></div>
                       </div>
                       <!-- Portfolio Modal - Image -->
-                      <img class="img-fluid rounded mb-5" src="{{ url('storage/proyectos/'.$proyectos->foto)}}" alt="Portada">
+                      <img class="img-fluid rounded mb-5" src="{{ url('storage/proyectos/'.$proyecto->foto)}}" alt="Portada">
                       <!-- Portfolio Modal - Text -->
                       <p class="mb-5">{{$proyecto->fecha}}</p>
                       <p class="mb-5">{{$proyecto->descripcion}}</p>
