@@ -52,7 +52,7 @@
                         <div class="divider-custom-line"></div>
                       </div>
                       <!-- Portfolio Modal - Image -->
-                      <img class="img-fluid rounded mb-5" src="{{ secure_url('storage/proyectos/'.$proyecto->foto)}}" alt="Portada">
+                      <img class="img-fluid rounded mb-5" src="{{ secure_url('https://raul-portfolio-storage.s3.eu-west-3.amazonaws.com/proyectos/'.$proyecto->foto)}}" alt="Portada">
                       <!-- Portfolio Modal - Text -->
                       <p class="mb-5">{{$proyecto->fecha}}</p>
                       <p class="mb-5">{{$proyecto->descripcion}}</p>
