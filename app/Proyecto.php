@@ -20,4 +20,8 @@ class Proyecto extends Model
         return $this->belongsTo('App\Categoria');
     }
 
+    public function getFoto() {
+        return Storage::disk('s3')->get($this->foto);
+    }
+
 }
