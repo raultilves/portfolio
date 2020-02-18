@@ -11,4 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@getIndex');
+Route::get('/', 'IndexController@getIndex');
+
+Auth::routes(['register' => false]);
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dashboard/proyectos/create', 'DashboardController@getCreateProyecto');
+Route::post('/dashboard/proyectos/create', 'DashboardController@postCreateProyecto');
+Route::delete('/dashboard/proyectos/delete/{id}', 'DashboardController@deleteProyecto');
