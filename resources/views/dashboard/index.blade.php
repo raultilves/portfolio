@@ -56,7 +56,7 @@
                                     <th style="width: 10%" scope="row">{{$proyecto->id}}</th>
                                     <td style="width: 35%">{{$proyecto->nombre}}</td>
                                     <td style="width: 35%">{{$proyecto->fecha}}</td>
-                                    <td style="width: 10%"><a class="btn btn-outline-info btn-sm btn-block" href="/dashboard/edit/{{$proyecto->id}}" role="button">Editar</a></td>
+                                    <td style="width: 10%"><a class="btn btn-outline-info btn-sm btn-block" href="/dashboard/proyectos/edit/{{$proyecto->id}}" role="button">Editar</a></td>
                                     <td style="width: 20%">
                                         <form action="{{action('DashboardController@deleteProyecto', $proyecto->id)}}" method="POST" style="display:inline">
                                         @method('DELETE')
