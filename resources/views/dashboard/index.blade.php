@@ -85,7 +85,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col" class="align-middle">Nombre</th>
                                     <th scope="col" class="align-middle">Acciones</th>
-                                    <th scope="col"><a class="btn btn-outline-success btn-sm btn-block" href="dashboard/create" role="button"><i class="fas fa-plus"></i></a></th>
+                                    <th scope="col"><a class="btn btn-outline-success btn-sm btn-block" href="dashboard/categorias/create" role="button"><i class="fas fa-plus"></i></a></th>
                                 </tr>
                             </thead>
 
@@ -94,9 +94,9 @@
                                 <tr>
                                     <th style="width: 10%" scope="row">{{$categoria->id}}</th>
                                     <td style="width: 70%">{{$categoria->nombre}}</td>
-                                    <td style="width: 10%"><a class="btn btn-outline-info btn-sm btn-block" href="/dashboard/edit/{{$categoria->id}}" role="button">Editar</a></td>
+                                    <td style="width: 10%"><a class="btn btn-outline-info btn-sm btn-block" href="/dashboard/categorias/edit/{{$categoria->id}}" role="button">Editar</a></td>
                                     <td style="width: 10%">
-                                        <form action="{{action('DashboardController@deleteProyecto', $categoria->id)}}" method="POST" style="display:inline">
+                                        <form action="{{action('DashboardController@deleteCategoria', $categoria->id)}}" method="POST" style="display:inline">
                                         @method('DELETE')
                                         @csrf
                                             <button type="submit" class="btn btn-outline-danger btn-sm btn-block" style="display:inline">

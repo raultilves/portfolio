@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Proyecto;
 use App\Categoria;
 use App\Http\Requests\ProyectoEditFormRequest;
+use App\Http\Requests\CategoriaFormRequest;
 
 class DashboardController extends Controller
 {
@@ -19,7 +20,7 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); //Obliga a estar autenticado para acceder
     }
 
     /**
@@ -27,6 +28,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    // Muestra un resumen del contenido en la BBDD mediante tablas PAGINADAS mediante QueryBuilder
     public function index()
     {
         $proyectos = DB::table('proyectos')->paginate(5, ['*'], 'proyectosPage');
@@ -39,22 +41,25 @@ class DashboardController extends Controller
         ]);
     }
 
+    // Carga la vista del formulario de creación de proyectos
     public function getCreateProyecto() {
         $categorias = Categoria::all();
         return view('dashboard/proyecto/create', ['categorias' => $categorias]);
     }
 
+    // VALIDACIÓN MEDIANTE VALIDATOR. VALIDACION REQUEST EN putEditProyecto \/
+    // Controla los datos mandados por formulario y crea proyectos en la base de datos
     public function postCreateProyecto(Request $request) {
-        $validator = Validator::make($request->all(), [
-            'nombre' => 'required|max:255',
-            'fecha' => 'required|date|before_or_equal:today',
-            'descripcion' => 'required',
-            'categoria' => 'required'
+        $validator = Validator::make($request->all(), [         //Controla los datos mediante la clase Validator
+            'nombre' => 'required|max:255',                     //Requerido, máximo 255 chars
+            'fecha' => 'required|date|before_or_equal:today',   //Requerido, formato fecha, anterior o igual a hoy
+            'descripcion' => 'required',                        //Requerido
+            'categoria' => 'required'                           //Requerido
         ]);
 
-        if ($validator->fails()) {
-            return redirect('dashboard/proyectos/create')
-                        ->withErrors($validator)
+        if ($validator->fails()) {                              //Si los datos son inválidos
+            return redirect('dashboard/proyectos/create')       //Redirige al formulario de nuevo
+                        ->withErrors($validator)                //Con los errores que ha devuelto el validador
                         ->withInput();
         }
 
@@ -97,6 +102,7 @@ class DashboardController extends Controller
         return redirect()->action('DashboardController@index');
     }
 
+    //Carga la vista del formulario de edición de Proyecto
     public function getEditProyecto($id) {
         return view('dashboard/proyecto/edit', [
             'proyecto' => Proyecto::findOrFail($id),
@@ -104,6 +110,8 @@ class DashboardController extends Controller
         ]);
     }
 
+    // VALIDACIÓN MEDIANTE REQUEST
+    //Controla los datos mandados por formulario y edita en la BBDD los proyectos
     public function putEditProyecto(ProyectoEditFormRequest $request, $id)
     {
         // Obtenemos el proyecto que queremos modificar
@@ -135,6 +143,7 @@ class DashboardController extends Controller
         return redirect()->action('DashboardController@index');
     }
 
+    //Obtiene un proyecto y lo borra
     public function deleteProyecto($id) {
         $proyecto = Proyecto::find($id);
         Storage::disk('s3')->delete('proyectos/'.$proyecto->foto);
@@ -142,6 +151,49 @@ class DashboardController extends Controller
         return redirect()->action('DashboardController@index');
     }
 
+    //Carga la vista del formulario de creación de categorias
+    public function getCreateCategoria() {
+        return view('dashboard/categoria/create');
+    }
+
+    // VALIDACIÓN MEDIANTE REQUEST
+    //Controla los datos mandados por formulario y edita en la BBDD los proyectos
+    public function postCreateCategoria(CategoriaFormRequest $request)
+    {
+        // Obtenemos la categoria que queremos modificar
+        $categoria = new Categoria();
+
+        /* Bloque de inserción de datos */
+        $categoria->nombre = $request->input('nombre');
+        /* FIN Bloque de inserción de datos */
+
+        $categoria->save(); // Subida a la base de datos
+        return redirect()->action('DashboardController@index');
+    }
+
+    //Carga la vista del formulario de edición de categorias
+    public function getEditCategoria($id) {
+        return view('dashboard/categoria/edit', [
+            'categoria' => Categoria::findOrFail($id)
+        ]);
+    }
+
+    // VALIDACIÓN MEDIANTE REQUEST
+    //Controla los datos mandados por formulario y edita en la BBDD los proyectos
+    public function putEditCategoria(CategoriaFormRequest $request, $id)
+    {
+        // Obtenemos la categoria que queremos modificar
+        $old_categoria = Categoria::find($id);
+
+        /* Bloque de actualización de datos */
+        $old_categoria->nombre = $request->input('nombre');    //Modificamos el nombre
+        /* FIN Bloque de actualización de datos */
+
+        $old_categoria->save(); // Subida a la base de datos
+        return redirect()->action('DashboardController@index');
+    }
+
+    //Obtiene una categoria y la borra
     public function deleteCategoria($id) {
         $categoria = Categoria::find($id);
         $categoria->delete();
