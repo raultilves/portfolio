@@ -27,7 +27,7 @@
         @endif
 
             <form method="POST" enctype="multipart/form-data">
-
+                @method('PUT')
                 @csrf
 
                 <div class="form-group">
@@ -45,24 +45,25 @@
 
                 <div class="form-group">
                     <label for="descripcion">Descripción de proyecto</label><br>
-                    <textarea name="descripcion" id="descripcion" rows="8" class="form-control">
-                    {{$proyecto->descripcion}}
-                    </textarea>
+                    <textarea name="descripcion" id="descripcion" rows="8" class="form-control">{{$proyecto->descripcion}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="categoria">Categoría</label><br>
                     <select class="form-control" id="categoria" name="categoria">
                     @foreach($categorias as $key => $categoria)
-                        @if ($proyecto->categoria->id == $proyecto)
+                        @if ($proyecto->categoria->id == $categoria->id)
+                        <option value="{{$categoria->id}}" selected>{{$categoria->id}} | {{$categoria->nombre}}</option>
+                        @else
                         <option value="{{$categoria->id}}">{{$categoria->id}} | {{$categoria->nombre}}</option>
+                        @endif
                     @endforeach
                     </select>
                 </div>
             
                 <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary" style="padding:8px;margin-top:25px;">
-                    Añadir cliente
+                    Editar proyecto
                 </button>
                 </div>
 

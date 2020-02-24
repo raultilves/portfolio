@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use App\Proyecto;
 use App\Categoria;
+use App\Http\Requests\ProyectoEditFormRequest;
 
 class DashboardController extends Controller
 {
@@ -57,7 +58,7 @@ class DashboardController extends Controller
                         ->withInput();
         }
 
-        // Creamos el objeto cliente
+        // Creamos el objeto proyecto
         $new_proyecto = new Proyecto();
 
         /* Bloque de asignación de datos */
@@ -75,13 +76,15 @@ class DashboardController extends Controller
         /* Bloque de subida a disco de archivos */
         if ($request->hasFile('foto')) {    //Se envia la foto
             if ($request->file('foto')->isValid()) {    //Se envia correctamente
+                $ext = $request->file('foto')->extension();                                     //Obtener extensión de fichero
                 $foto = $request->file('foto');                                                 //Obtener foto del formulario
-                $fotoName = $new_id.'_'.str_replace(' ','',$request->input('nombre').'.png');   //Asignacion de nombre de foto
+                $fotoName = $new_id.'_'.str_replace(' ','',$request->input('nombre').'.'.$ext); //Asignacion de nombre de foto
                 $fotoPath = 'proyectos/' . $fotoName;                                           //Asignación de la ruta en s3
-                Storage::disk('s3')->put($fotoPath, file_get_contents($foto));                                     //Subida a s3
+                Storage::disk('s3')->put($fotoPath, file_get_contents($foto));                  //Subida a s3
                 $thisProyecto = Proyecto::find($new_id);
                 $thisProyecto->foto = $fotoName;
                 
+                // Actualización del campo fotos de ese objeto (Haciendo uso de QueryBuilder)
                 DB::table('proyectos')
                 ->where('id', $new_id)
                 ->update(['foto' => $fotoName]);
@@ -94,6 +97,44 @@ class DashboardController extends Controller
         return redirect()->action('DashboardController@index');
     }
 
+    public function getEditProyecto($id) {
+        return view('dashboard/proyecto/edit', [
+            'proyecto' => Proyecto::findOrFail($id),
+            'categorias' => Categoria::all()
+        ]);
+    }
+
+    public function putEditProyecto(ProyectoEditFormRequest $request, $id)
+    {
+        // Obtenemos el proyecto que queremos modificar
+        $old_proyecto = Proyecto::find($id);
+        $old_imagen = $old_proyecto->foto; //Y su actual foto
+
+        /* Bloque de actualización de datos */
+        $old_proyecto->nombre = $request->input('nombre');    //Modificamos el nombre
+        
+        /* Bloque de actualización de imagen */
+        if ($request->hasFile('foto')) {    //Se actualiza foto? ->
+            if ($request->file('foto')->isValid()) {    //Es válida? ->
+                $ext = $request->file('foto')->extension(); //Obtener extensión de fichero
+                $foto = $request->file('foto');
+                $old_proyecto->foto = $id.'_'.str_replace(' ','',$request->input('nombre').'.'.$ext);  //Actualizar campo imagen con su id y el cambio de extensión si lo hubiera
+                Storage::disk('s3')                         //En el disco public de storage...
+                ->delete('proyectos/'.$old_imagen);         //Borrar en la carpeta clientes la siguiente imagen
+                Storage::disk('s3')
+                ->put('proyectos/'.$old_proyecto->foto, file_get_contents($foto));
+            }
+        }
+        /* FIN Bloque de actualización de imagen */
+        $old_proyecto->fecha = $request->input('fecha');
+        $old_proyecto->descripcion = $request->input('descripcion');
+        $old_proyecto->categoria_id = $request->input('categoria');
+        /* FIN Bloque de actualización de datos */
+
+        $old_proyecto->save(); // Subida a la base de datos
+        return redirect()->action('DashboardController@index');
+    }
+
     public function deleteProyecto($id) {
         $proyecto = Proyecto::find($id);
         Storage::disk('s3')->delete('proyectos/'.$proyecto->foto);
@@ -103,10 +144,6 @@ class DashboardController extends Controller
 
     public function deleteCategoria($id) {
         $categoria = Categoria::find($id);
-        /*
-        Storage::disk('public')                     //En el disco public de storage...
-        ->delete('clientes/'.$cliente->imagen);     //Borrar en la carpeta clientes la siguiente imagen
-        */
         $categoria->delete();
         return redirect()->action('DashboardController@index');
     }
