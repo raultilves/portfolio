@@ -90,10 +90,10 @@
       <!-- About Section Content -->
       <div class="row">
         <div class="col-lg-4 ml-auto">
-          <p class="lead">Soy un apasionado de la programación, desarrollador web Full-Stack aunque especializado en el Back-End. Mis proyectos son hechos con mucho cariño e ilusión.</p>
+          <p class="lead">@lang('About me 1')</p>
         </div>
         <div class="col-lg-4 mr-auto">
-          <p class="lead">A pesar de ser Junior, tengo conocimientos sobre muchas tecnologías, las principales: PHP, Node.js, MySQL/MariaDB, MongoDB, HTML, CSS, Javascript y entornos LAMP.</p>
+          <p class="lead">@lang('About me 2')</p>
         </div>
       </div>
 

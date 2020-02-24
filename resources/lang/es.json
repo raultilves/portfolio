@@ -27,5 +27,7 @@
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
     "If you did not receive the email": "Si no has recibido el email",
     "click here to request another": "pulsa aquí para que te enviemos otro",
-    "Logged In": "Has iniciado sesión correctamente"
+    "Logged In": "Has iniciado sesión correctamente",
+    "About me 1": "Soy un apasionado de la programación, desarrollador web Full-Stack aunque especializado en el Back-End. Mis proyectos son hechos con mucho cariño e ilusión.",
+    "About me 2": "A pesar de ser Junior, tengo conocimientos sobre muchas tecnologías, las principales: PHP, Node.js, MySQL/MariaDB, MongoDB, HTML, CSS, Javascript y entornos LAMP."
 }
