@@ -13,7 +13,7 @@
 
 Route::get('/', 'IndexController@getIndex');
 
-Auth::routes(['register' => true]);
+Auth::routes(['register' => false]);
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
