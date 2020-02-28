@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{secure_asset('css/app.css') }}" rel="stylesheet">
 
     <title>Raul Santana - Portfolio</title>
 
@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <script src="{{secure_asset('js/jquery.min.js')}}"></script>
-    <script src="{{ secure_asset('js/dashboard.js') }}" defer></script>
+    <script src="{{secure_asset('js/dashboard.js') }}" defer></script>
 
 </head>
 <body>
